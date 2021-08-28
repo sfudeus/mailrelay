@@ -1,7 +1,10 @@
-name: Docker Build Image
+name: Docker Build/Publish Image
 on:
-  push: {}
-  pull_request: {}
+  push:
+    tags:
+    - "*"
+  schedule:
+  - cron:  '15 6 * * 0'
   workflow_dispatch: {}
 
 jobs:
@@ -34,4 +37,4 @@ jobs:
         tags: |
           "${{ github.repository }}:${{ steps.revision.outputs.target-revision }}"
           "${{ github.repository }}:latest"
-        push: false
+        push: true
