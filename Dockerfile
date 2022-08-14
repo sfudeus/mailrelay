@@ -1,9 +1,9 @@
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
-apt-get -yy dist-upgrade && \
+  apt-get -yy dist-upgrade && \
   apt-get install -yy postfix rsyslog && \
   apt-get clean
 
