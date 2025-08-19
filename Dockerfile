@@ -1,6 +1,6 @@
-FROM debian:bookworm-slim
+FROM debian:trixie-slim
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
   apt-get -yy dist-upgrade && \
@@ -11,4 +11,4 @@ ADD entrypoint.sh /
 ADD rsyslog.conf /etc
 ADD sasl_passwd /etc/postfix
 
-ENTRYPOINT [ "/entrypoint.sh"]
+ENTRYPOINT [ "/entrypoint.sh" ]
